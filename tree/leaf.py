@@ -1,6 +1,6 @@
 import click
 
-from tree import hook_implementation
+from tree.trunk import hook_implementation
 
 
 @hook_implementation

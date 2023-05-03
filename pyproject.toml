@@ -1,3 +1,6 @@
+[tool.setuptools]
+py-modules = ["tree"]
+
 [project]
 name = "tree-trunk"
 readme = "README.md"
@@ -12,7 +15,7 @@ dynamic = ["version"]
 dependencies = ["click", "pluggy"]
 
 [project.scripts]
-tree = "tree.trunk:cli"
+dtree = "tree.trunk.main:cli"
 
 [project.optional-dependencies]
 dev = [

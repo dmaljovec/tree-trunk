@@ -1,8 +1,9 @@
 import click
 import pluggy
 
-from tree import hooks
-from tree import leaf, twig
+from tree import leaf
+from tree import twig
+from tree.trunk import hooks
 
 def print_banner():
     print("""
@@ -40,8 +41,7 @@ def get_plugin_manager():
     return pm
 
 
-if __name__ == '__main__':
-    pm = get_plugin_manager()
-    for plugin in pm.hook.add_subcommand():
-        cli.add_command(plugin)
-    cli()
+pm = get_plugin_manager()
+for plugin in pm.hook.add_subcommand():
+    cli.add_command(plugin)
+cli()
