@@ -1,0 +1,82 @@
+[project]
+name = "tree-trunk"
+readme = "README.md"
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["test"]
+requires-python = ">=3.11"
+dynamic = ["version"]
+dependencies = ["click", "pluggy"]
+
+[project.scripts]
+tree = "tree.trunk:cli"
+
+[project.optional-dependencies]
+dev = [
+    "bandit",
+    "black",
+    "coverage[toml]",
+    "docstr-coverage",
+    "isort",
+    "mypy",
+    "pdir2",
+    "pre-commit",
+    "pydocstyle[toml]",
+    "pylama",
+    "pytest",
+    "radon",
+    "ruff",
+]
+
+[tool.distutils.bdist_wheel]
+universal = true
+
+[tool.isort]
+profile = "black"
+py_version = "auto"
+line_length = 120
+
+[tool.bandit]
+exclude = "tests"
+
+[tool.ruff]
+select = ["E", "F"]
+ignore = []
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".mypy_cache",
+    ".nox",
+    ".ruff_cache",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "build",
+    "dist",
+    "venv",
+]
+line-length = 120
+target-version = "py311"
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+
+[tool.mypy]
+files = "tree"
+python_version = "3.9"
+ignore_missing_imports = true
+show_error_codes = true
+allow_untyped_calls = true
+
+[tool.pydocstyle]
+convention = "numpy"
+inherit = false
+# ignore = ["D100","D203","D405"]
+match = ".*\\.py"
